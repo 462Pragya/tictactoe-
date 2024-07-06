@@ -8,7 +8,7 @@ import javax.swing.*;
 public class TicTacToe implements ActionListener  {
 	Random random = new Random();
 	JFrame frame =new JFrame();
-	JPanel title_panel1= new JPanel();
+	//JPanel title_panel1= new JPanel();
 	JPanel title_panel= new JPanel();
     JPanel button_panel =new JPanel();
 	JLabel textfield =new JLabel();
@@ -23,27 +23,28 @@ public class TicTacToe implements ActionListener  {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1000,800);
 		frame.getContentPane().setBackground(new Color (50,50,50));
-		frame.setLayout(null);
+		//frame.setLayout(null);
+		frame.setLayout(new BorderLayout());
 		frame.setVisible(true);
-		frame.add(title_panel);
-		frame.add(button_panel);
-		frame.add(resetButton);
-		frame.add(title_panel1);
+		frame.add(title_panel,BorderLayout.NORTH);
+		frame.add(button_panel,BorderLayout.CENTER);
+		frame.add(resetButton,BorderLayout.SOUTH);
+		//frame.add(title_panel1);
 		
-		    title.setBackground(Color.pink);
-	        title.setForeground(new Color(252, 20, 63));
+		    title.setBackground(new Color(244, 172, 183));
+	        title.setForeground(new Color(84, 11, 14));
 	        title.setFont(new Font("Ink Free", Font.BOLD,75));
 	        title.setHorizontalAlignment(JLabel.CENTER);
 	        //title.setVerticalAlignment(JLabel.CENTER);
 	        title.setText("Tic-Tac-Toe");
 	        title.setOpaque(true);
 	        
-	        title_panel1.setLayout(new BorderLayout());
-	        title_panel1.setBounds(0, 0, 1000, 100);
-	        title_panel1.add(title);
+	        //title_panel1.setLayout(new BorderLayout());
+	        //title_panel1.setBounds(0, 0, 1000, 100);
+	        //title_panel1.add(title);
 		
-        textfield.setBackground(new Color(25,25,25));
-        textfield.setForeground(new Color(252, 20, 63));
+        textfield.setBackground(new Color(255, 202, 212));
+        textfield.setForeground(new Color(84, 11, 14));
         textfield.setFont(new Font("Ink Free", Font.BOLD,75));
         textfield.setHorizontalAlignment(JLabel.CENTER);
         textfield.setVerticalAlignment(JLabel.CENTER);
@@ -51,14 +52,16 @@ public class TicTacToe implements ActionListener  {
         textfield.setOpaque(true);
         
         title_panel.setLayout(new BorderLayout());
-        title_panel.setBounds(0, 100, 1000, 100);
-        title_panel.add(textfield);
-        
+        //title_panel.setBounds(0, 100, 1000, 100);
+        //title_panel.add(textfield);
+        title_panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        title_panel.add(title, BorderLayout.NORTH);
+        title_panel.add(textfield, BorderLayout.SOUTH);
        
-        button_panel.setLayout(new GridLayout(3,3));
-        button_panel.setBackground(new Color(150,150,150));
-        button_panel.setBounds(0, 200, 1000, 400);
-        
+        button_panel.setLayout(new GridLayout(3,3,10,10));
+        button_panel.setBackground(new Color(216, 226, 220));
+        //button_panel.setBounds(0, 200, 1000, 400);
+        button_panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         for(int i=0;i<9;i++) {
         	buttons[i]= new JButton();
         	button_panel.add(buttons[i]); 
@@ -72,11 +75,12 @@ public class TicTacToe implements ActionListener  {
         resetButton.setFont(new Font("Ink Free", Font.BOLD,50));
         resetButton.setFocusable(false);
     	resetButton.addActionListener(this);
-    	resetButton.setBackground(new Color(221, 247, 220));
-    	
-    	resetButton.setBounds(0, 600, 1000, 100);
+    	resetButton.setBackground(new Color(255, 229, 217));
+    	resetButton.setForeground(new Color(84, 11, 14));
+    	//resetButton.setBounds(0, 600, 1000, 100);
         resetButton.setText("Reset");
         resetButton.setHorizontalTextPosition(JButton.CENTER);
+        resetButton.setBorder(BorderFactory.createEtchedBorder()); 
         
         firstTurn();
         
